@@ -9,14 +9,14 @@ let package = Package(
   products: [
     .library(
       name: "Stripe",
-      targets: ["StripeiOS"]
+      targets: ["Stripe"]
     ),
   ],
   dependencies: [
   ],
   targets: [
     .binaryTarget(
-      name: "StripeiOS",
+      name: "Stripe",
       url: "https://github.com/stripe/stripe-ios/releases/download/v19.4.0/Stripe.xcframework.zip",
         checksum: "d1ab10f4fbd5d577715a002309136e7b17a400c92d78151a8ea331d160c04b20"
     ),
