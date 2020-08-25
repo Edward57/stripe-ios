@@ -3,6 +3,48 @@ import PackageDescription
 
 let package = Package(
   name: "Stripe",
+    defaultLocalization: "en",
+    platforms: [
+        .iOS(.v10)
+    ],
+  products: [
+    .library(
+      name: "Stripe",
+      targets: ["StripeiOS",]
+    ),
+  ],
+  dependencies: [
+  ],
+  targets: [
+    .target(
+      name: "StripeiOS",
+      path: "Stripe",
+        resources: [.process("Resources/Images")],
+        publicHeadersPath: "Stripe/PublicHeaders",
+        cSettings: [
+          .headerSearchPath("PublicHeaders"),
+        ]
+    ),
+//    .testTarget(
+//      name: "StripeiOS Tests",
+//      dependencies: ["StripeiOS", "Stripe3DS2"],
+//      path: "Tests"
+//    ),
+    .binaryTarget( name: "Stripe3DS2",
+      url: "https://github.com/stripe-ios/stripe-3ds2-ios-releases/releases/download/16.0.3.2-test/Stripe3DS2.xcframework.zip",
+      checksum: "ab952ad7e28afb09734788983b6430d019e5519c0a6c23464859b7337eb3a8fe"
+    ),
+  ]
+)
+
+
+/*
+ 
+ // swift-tools-version:5.3
+import PackageDescription
+
+let package = Package(
+  name: "Stripe",
   platforms: [
     .iOS(.v10)
   ],
@@ -22,40 +64,5 @@ let package = Package(
     ),
   ]
 )
-
-
-/*
-// swift-tools-version:5.3
-import PackageDescription
-
-let package = Package(
-  name: "Stripe",
-  platforms: [
-    .iOS(.v10)
-  ],
-  products: [
-    .library(
-      name: "Stripe",
-      targets: ["StripeiOS", "libStripe3DS2"]
-    ),
-  ],
-  dependencies: [
-  ],
-  targets: [
-    .target(
-      name: "StripeiOS",
-      path: "Stripe",
-      publicHeadersPath: "Stripe/PublicHeaders"
-    ),
-    .testTarget(
-      name: "StripeiOS Tests",
-      dependencies: ["StripeiOS", "libStripe3DS2"],
-      path: "Tests"
-    ),
-    .binaryTarget(
-      name: "libStripe3DS2",
-      path: "InternalFrameworks/libStripe3DS2.a"
-    ),
-  ]
-)
 */
+
