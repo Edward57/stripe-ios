@@ -24,6 +24,7 @@ let package = Package(
         cSettings: [
           .headerSearchPath("PublicHeaders"),
           .headerSearchPath(".."),
+          .headerSearchPath("PublicHeaders/Stripe"),
         ]
     ),
 //    .testTarget(
