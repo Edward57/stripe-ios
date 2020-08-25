@@ -18,6 +18,7 @@ let package = Package(
   targets: [
     .target(
       name: "Stripe",
+      dependencies: ["Stripe3DS2"],
       path: "Stripe",
         resources: [.process("Resources/Images")],
         publicHeadersPath: "Stripe/PublicHeaders",
