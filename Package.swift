@@ -10,19 +10,20 @@ let package = Package(
   products: [
     .library(
       name: "Stripe",
-      targets: ["StripeiOS",]
+      targets: ["Stripe",]
     ),
   ],
   dependencies: [
   ],
   targets: [
     .target(
-      name: "StripeiOS",
+      name: "Stripe",
       path: "Stripe",
         resources: [.process("Resources/Images")],
         publicHeadersPath: "Stripe/PublicHeaders",
         cSettings: [
           .headerSearchPath("PublicHeaders"),
+          .headerSearchPath(".."),
         ]
     ),
 //    .testTarget(
